@@ -2,6 +2,9 @@
 
 1. Create react application using VITE. 
 2. Installing tailwind css for VITE and configuring that in vite.config.ts
+3. Header
+4. Login form
+5. Sign Up form
 
 # Features
 
