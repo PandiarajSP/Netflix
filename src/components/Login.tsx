@@ -1,13 +1,16 @@
 import { useRef, useState } from "react";
-import "../css/Login.css";
 import Header from "./Header";
 import { formValidate } from "../utils/validate";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  updateProfile,
+  type User,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
 
 interface ErrorMessage {
   code: string;
@@ -20,6 +23,7 @@ const Login = () => {
   const name = useRef<HTMLInputElement | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const toggleSignInForm = () => {
     setIsSignInNow(!isSignInNow);
@@ -53,6 +57,32 @@ const Login = () => {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
+          updateProfile(user, {
+            displayName: name.current?.value,
+            photoURL: "https://example.com/jane-q-user/profile.jpg",
+          })
+            .then(() => {
+              // updated value in auth.currentUser
+              if (auth.currentUser) {
+                const { uid, email, displayName, photoURL }: User =
+                  auth.currentUser;
+                // Profile updated!
+                dispatch(
+                  addUser({
+                    uid: uid,
+                    email: email,
+                    displayName: displayName,
+                    photoURL: photoURL,
+                  })
+                );
+              }
+            })
+            .catch((error: ErrorMessage) => {
+              // An error occurred
+              // ...
+              console.log(error);
+              setErrorMessage(error.message);
+            });
           console.log(user);
           setIsSignInNow(true);
           // ...
