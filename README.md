@@ -14,6 +14,13 @@
 12. Created Redux store with userSlice
 13. Implemented Sign out
 14. Update Profile
+15. Unsubscribed to the onAuthStateChanged callback
+16. Register TMDB API & Create an Access token
+17. Get data from the now playing movies API. 
+18. Update the store with movies data (Movie slice)
+19. Planning for Main container & Secondary container
+20. Fetch data for Trailer video
+21. Embedded the youtube video and make it autoplay and mute
 
 # Features
 
@@ -39,3 +46,11 @@
 - Firebase Login - `firebase login`
 - Initialize Firebase - `firebase init`, then select Hosting
 - Deploy command - `firebase deploy`
+
+# TMDB Integration
+
+- Go to the TMDB website - https://www.themoviedb.org/
+- Sign up/ Login here
+- Go to Edit profile and Click API
+- Generate New API key (Enter mandatory details for registering there)
+- API References - Click MOVIE LISTS

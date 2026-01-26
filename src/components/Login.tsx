@@ -8,9 +8,9 @@ import {
   type User,
 } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { LOGIN_BG } from "../utils/constants";
 
 interface ErrorMessage {
   code: string;
@@ -22,7 +22,6 @@ const Login = () => {
   const password = useRef<HTMLInputElement | null>(null);
   const name = useRef<HTMLInputElement | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const toggleSignInForm = () => {
@@ -59,7 +58,6 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: name.current?.value,
-            photoURL: "https://example.com/jane-q-user/profile.jpg",
           })
             .then(() => {
               // updated value in auth.currentUser
@@ -102,7 +100,6 @@ const Login = () => {
           // Signed in
           const user = userCredential.user;
           console.log(user);
-          navigate("/browse");
           // ...
         })
         .catch((error: ErrorMessage) => {
@@ -116,10 +113,7 @@ const Login = () => {
     <div>
       <Header />
       <div className="absolute">
-        <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/e8136cfe-c5b7-464f-8c26-d68d676e0916/web/IN-en-20251229-TRIFECTA-perspective_c50c689c-0d42-413b-bd09-f4fc62fbec13_small.jpg"
-          alt="bg-image"
-        />
+        <img src={LOGIN_BG} alt="bg-image" />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
