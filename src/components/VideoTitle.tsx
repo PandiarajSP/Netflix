@@ -4,7 +4,7 @@ interface VideoTitleProps {
 }
 const VideoTitle = ({ title, overview }: VideoTitleProps) => {
   return (
-    <div className="w-screen pt-[20%] px-36 absolute text-white aspect-video bg-linear-to-r from-black">
+    <div className="w-screen pt-[12%] px-36 absolute text-white aspect-video bg-linear-to-r from-black">
       <h1 className="text-6xl font-bold">{title}</h1>
       <p className="w-1/4 pt-10 text-lg">{overview}</p>
       <div>

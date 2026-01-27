@@ -21,6 +21,7 @@
 19. Planning for Main container & Secondary container
 20. Fetch data for Trailer video
 21. Embedded the youtube video and make it autoplay and mute
+22. TMDB Image CDN URL
 
 # Features
 
