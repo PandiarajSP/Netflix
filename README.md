@@ -22,6 +22,8 @@
 20. Fetch data for Trailer video
 21. Embedded the youtube video and make it autoplay and mute
 22. TMDB Image CDN URL
+23. GPT search implementation
+24. Multi-language feature in our app
 
 # Features
 

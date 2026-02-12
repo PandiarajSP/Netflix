@@ -4,7 +4,7 @@ import { addTopRatedMovies } from "../utils/moviesSlice.ts";
 import { API_OPTIONS, TOP_RATED_MOVIES_URL } from "../utils/constants.ts";
 import type { Movie } from "../types/movie.ts";
 
-const useTopRatedMovies = () => {
+const useTopRatedMovies = (gptSearch: boolean) => {
   const dispatch = useDispatch();
 
   const getTopRatedMoviesList = async () => {
@@ -18,6 +18,7 @@ const useTopRatedMovies = () => {
     }
   };
   useEffect(() => {
+    if(gptSearch) return;
     getTopRatedMoviesList();
   }, []);
 };

@@ -4,9 +4,8 @@ import { addNowPlayingMovies } from "../utils/moviesSlice.ts";
 import { API_OPTIONS, PLAYING_MOVIES_URL } from "../utils/constants.ts";
 import type { Movie } from "../types/movie.ts";
 
-const useNowPlayingMovies = () => {
+const useNowPlayingMovies = (gptSearch: boolean) => {
   const dispatch = useDispatch();
-
   const getPlayingMoviesList = async () => {
     try {
       const data = await fetch(PLAYING_MOVIES_URL, API_OPTIONS);
@@ -18,6 +17,7 @@ const useNowPlayingMovies = () => {
     }
   };
   useEffect(() => {
+    if(gptSearch) return;
     getPlayingMoviesList();
   }, []);
 };

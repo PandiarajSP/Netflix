@@ -4,7 +4,7 @@ import { addPopularMovies } from "../utils/moviesSlice.ts";
 import { API_OPTIONS, POPULAR_MOVIES_URL } from "../utils/constants.ts";
 import type { Movie } from "../types/movie.ts";
 
-const usePopularMovies = () => {
+const usePopularMovies = (gptSearch: boolean) => {
   const dispatch = useDispatch();
 
   const getPopularMoviesList = async () => {
@@ -18,6 +18,7 @@ const usePopularMovies = () => {
     }
   };
   useEffect(() => {
+    if(gptSearch) return;
     getPopularMoviesList();
   }, []);
 };
