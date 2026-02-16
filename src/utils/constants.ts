@@ -8,21 +8,31 @@ export const API_OPTIONS = {
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2ZTQ2Nzk1YjZkYjM1Nzg0NDc1NzZhYTlmZmUyYzMzNyIsIm5iZiI6MTc2ODU2MDkyMS4xODUsInN1YiI6IjY5NmExOTE5ZTM5OWY1Yzk4NWQ2NmFhOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.HHv-HUCXYGSpV3xuN5DNZ8dMfRXHd3mCqFCRXAWWr80`,
+    Authorization: `Bearer ` + import.meta.env.VITE_API_KEY,
   },
 };
-export const PLAYING_MOVIES_URL = 'https://api.themoviedb.org/3/movie/now_playing?page=1';
-export const POPULAR_MOVIES_URL = 'https://api.themoviedb.org/3/movie/popular?page=1';
-export const TOP_RATED_MOVIES_URL = 'https://api.themoviedb.org/3/movie/top_rated?page=1';
-export const VIDEOS = "https://api.themoviedb.org/3/movie/movie_id/videos?language=en-US";
+export const PLAYING_MOVIES_URL =
+  "https://api.themoviedb.org/3/movie/now_playing?page=1";
+export const POPULAR_MOVIES_URL =
+  "https://api.themoviedb.org/3/movie/popular?page=1";
+export const TOP_RATED_MOVIES_URL =
+  "https://api.themoviedb.org/3/movie/top_rated?page=1";
+export const VIDEOS =
+  "https://api.themoviedb.org/3/movie/movie_id/videos?language=en-US";
 export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w500";
 
 export const SUPPORTED_LANGUAGES = [
   {
-    identifier: "en", name: "English"
-  },{
-    identifier: "tamil", name: "Tamil"
-  },{
-    identifier: "hindi", name: "Hindi"
-  }
+    identifier: "en",
+    name: "English",
+  },
+  {
+    identifier: "tamil",
+    name: "Tamil",
+  },
+  {
+    identifier: "hindi",
+    name: "Hindi",
+  },
 ];
+export const OPENAI_KEY = import.meta.env.VITE_OPENAI_KEY;

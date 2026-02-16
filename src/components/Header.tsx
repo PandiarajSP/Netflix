@@ -65,7 +65,6 @@ const Header = () => {
   };
   const gptSearchClick = () => {
     dispatch(toggleSearchButton());
-    console.log("clicked");
   };
   const handleLanguagechange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     dispatch(changeLanguage(e.target.value));

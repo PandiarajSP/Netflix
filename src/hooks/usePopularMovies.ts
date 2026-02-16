@@ -1,12 +1,15 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addPopularMovies } from "../utils/moviesSlice.ts";
 import { API_OPTIONS, POPULAR_MOVIES_URL } from "../utils/constants.ts";
 import type { Movie } from "../types/movie.ts";
+import type { RootState } from "../utils/appStore.ts";
 
-const usePopularMovies = (gptSearch: boolean) => {
+const usePopularMovies = () => {
   const dispatch = useDispatch();
-
+  const popularMovies = useSelector(
+    (store: RootState) => store.movies.popularMovies,
+  );
   const getPopularMoviesList = async () => {
     try {
       const data = await fetch(POPULAR_MOVIES_URL, API_OPTIONS);
@@ -18,8 +21,7 @@ const usePopularMovies = (gptSearch: boolean) => {
     }
   };
   useEffect(() => {
-    if(gptSearch) return;
-    getPopularMoviesList();
+    if(!popularMovies) getPopularMoviesList();
   }, []);
 };
 export default usePopularMovies;
