@@ -24,6 +24,10 @@
 22. TMDB Image CDN URL
 23. GPT search implementation
 24. Multi-language feature in our app
+25. Get open AI key
+26. Gpt seach API call
+27. Reused movie list component to make movie suggestion container
+28. Responsiveness
 
 # Features
 
