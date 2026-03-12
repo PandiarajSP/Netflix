@@ -1,6 +1,5 @@
-import React from "react";
-import type { RootState } from "../utils/appStore";
 import { useSelector } from "react-redux";
+import type { RootState } from "../utils/appStore";
 import MovieList from "./MovieList";
 
 const GptMovieSuggestion = () => {

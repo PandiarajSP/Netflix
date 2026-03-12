@@ -1,9 +1,9 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../utils/appStore";
-import lang from "../utils/languageConstants";
 import { API_OPTIONS, OPENAI_KEY } from "../utils/constants";
 import { addGptMovieResult } from "../utils/gptSlice";
+import lang from "../utils/languageConstants";
 
 const GptSearch = () => {
   const langKey = useSelector((state: RootState) => state.config.lang);
